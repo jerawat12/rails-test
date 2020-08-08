@@ -1,10 +1,11 @@
 FROM ruby:2.5.0
-RUN mkdir /myapp
+#RUN mkdir /myapp
 WORKDIR /myapp
-COPY . /myapp
-RUN gem install bundle
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+COPY Gemfile* ./
+COPY .env.example .env
+#RUN gem install bundle
+#COPY Gemfile /myapp/Gemfile
+#COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 RUN rails db:setup
 RUN rails db:migrate
@@ -12,7 +13,9 @@ RUN rails db:migrate
 #COPY entrypoint.sh /usr/bin/
 #RUN chmod +x /usr/bin/entrypoint.sh
 #ENTRYPOINT ["entrypoint.sh"]
+
+RUN bundle exec rake assets:precompile
 EXPOSE 3000
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rackup", "--port=8080", "--env=development"]
