@@ -5,7 +5,7 @@ RUN gem install rails
 
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN sudo yarn install --check-files
+#RUN yarn install --check-files
 
 EXPOSE 3000
 COPY Gemfile* ./
