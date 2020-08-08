@@ -1,5 +1,6 @@
 FROM ruby:2.5.0
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
+RUN yarn install --check-files
 WORKDIR /app
 EXPOSE 3000
 COPY Gemfile* ./
