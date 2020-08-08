@@ -1,11 +1,11 @@
 FROM ruby:2.5.0
 RUN mkdir /myapp
 WORKDIR /myapp
+COPY . /myapp
 RUN gem install bundle
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
-COPY . /myapp
 RUN rails db:setup
 RUN rails db:migrate
 # Add a script to be executed every time the container starts.
