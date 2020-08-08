@@ -1,8 +1,8 @@
 FROM ruby:2.5.0
 RUN mkdir /myapp
 WORKDIR /myapp
-RUN gem bundle install
-RUN install bundle
+RUN gem install bundle
+RUN bundle install
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 COPY . /myapp
