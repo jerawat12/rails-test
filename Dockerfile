@@ -1,6 +1,6 @@
 FROM ruby:2.5.0
 #RUN mkdir /myapp
-WORKDIR /myapp
+WORKDIR ./
 COPY Gemfile* ./
 #COPY .env.example .env
 #RUN gem install bundle
