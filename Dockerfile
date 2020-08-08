@@ -2,7 +2,7 @@ FROM ruby:2.5.0
 #RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile* ./
-COPY .env.example .env
+#COPY .env.example .env
 #RUN gem install bundle
 #COPY Gemfile /myapp/Gemfile
 #COPY Gemfile.lock /myapp/Gemfile.lock
