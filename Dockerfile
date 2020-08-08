@@ -10,9 +10,9 @@ RUN bundle install
 #RUN rails db:setup
 #RUN rails db:migrate
 # Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+#COPY entrypoint.sh /usr/bin/
+#RUN chmod +x /usr/bin/entrypoint.sh
+#ENTRYPOINT ["entrypoint.sh"]
 
 #RUN bundle exec rake assets:precompile
 EXPOSE 3000
