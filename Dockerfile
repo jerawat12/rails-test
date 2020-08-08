@@ -2,9 +2,9 @@ FROM ruby:2.5.0
 RUN mkdir /myapp
 WORKDIR /myapp
 RUN gem install bundle
-RUN bundle install
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
+RUN bundle install
 COPY . /myapp
 RUN rails db:setup
 RUN rails db:migrate
